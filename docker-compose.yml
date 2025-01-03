@@ -1,0 +1,32 @@
+
+
+services:
+  web:
+    build: ./
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./:/src/project/
+    ports:
+      - 8000:8000
+    env_file:
+      - ./.env.dev
+
+
+  db:
+    image: postgres:15
+    container_name: blogApplication
+    restart: always
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=blogApplication
+      - POSTGRES_PASSWORD=blogApplication
+      - POSTGRES_DB=blogApplication # env variable
+    ports:
+      - "5436:5432"  # Expose PostgreSQL port (optional)
+  
+  # Other services like your Django app can go here
+
+volumes:
+  postgres_data:
+    name: postgres_data
