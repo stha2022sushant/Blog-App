@@ -23,7 +23,7 @@ services:
       - POSTGRES_PASSWORD=blogApplication
       - POSTGRES_DB=blogApplication # env variable
     ports:
-      - "5436:5432"  # Expose PostgreSQL port (optional)
+      - "5432:5432"  # Expose PostgreSQL port (optional)
   
   # Other services like your Django app can go here
 
