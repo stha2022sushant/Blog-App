@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y \
 
 # Install Poetry and dependencies
 RUN pip install --upgrade pip
-RUN pip install django psycopg2-binary strawberry-graphql-django 
+RUN pip install django psycopg2-binary strawberry-graphql-django django-debug-toolbar
 COPY pyproject.toml poetry.lock /src/project/
 RUN pip install --no-cache-dir poetry \
     && poetry install --no-root --no-dev
