@@ -15,7 +15,7 @@ services:
   db:
     image: postgres:15
     container_name: blogApplication
-    restart: always
+    restart: always  # This must be changed 
     volumes:
       - postgres_data:/var/lib/postgresql/data
     environment:

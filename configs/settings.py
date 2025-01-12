@@ -39,9 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blogApplication',
+    'blogApplication',  #BlogSushant
     'strawberry_django',
-    'debug_toolbar',
+    'debug_toolbar',   
 ]
 
 MIDDLEWARE = [
