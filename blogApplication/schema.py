@@ -59,6 +59,9 @@ class Mutation:
     update_blogs: list[BlogApp] = mutations.update(BlogAppPartialInput)
     delete_blogs: list[BlogApp] = mutations.delete()
 
+
+    
+
     register: User = auth.register(UserInput)
 
 schema = strawberry.Schema(query=Query, mutation=Mutation)
