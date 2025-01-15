@@ -15,11 +15,15 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean
 
 # Install Poetry and dependencies
-RUN pip install --upgrade pip
-RUN pip install django psycopg2-binary strawberry-graphql-django django-debug-toolbar pytest pytest-django
+# RUN pip install --upgrade pip
+# RUN pip install django psycopg2-binary strawberry-graphql-django django-debug-toolbar pytest pytest-django
 COPY pyproject.toml poetry.lock /src/project/
 RUN pip install --no-cache-dir poetry \
-    && poetry install --no-root 
+     && poetry config virtualenvs.create false \
+     && poetry install --no-root \
+     && pip uninstall -y poetry virtualenv-clone virtualenv
+
+#COPY pyproject.toml poetry.lock /src/project/
 
 # Copy project files
 COPY . /src/project/
