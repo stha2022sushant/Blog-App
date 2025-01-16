@@ -1,8 +1,7 @@
-from django.contrib.auth import get_user_model
 from .models import BlogApp
-from factory.django import DjangoModelFactory 
+import factory
 
-class BlogFactory(DjangoModelFactory):
+
+class BlogFactory(factory.django.DjangoModelFactory):
     class Meta():
         model = BlogApp
-    

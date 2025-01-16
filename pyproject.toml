@@ -1,26 +1,24 @@
 [tool.poetry]
 name = "blog-app"
 version = "0.1.0"
-description = "A blog application with Django, Strawberry GraphQL, and PostgreSQL"
-authors = ["Sushant <stha2022sushant@gmail.com>"]
-license = "Apache"
+description = ""
+authors = ["test"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "3.12.7"
 django = "^5.1.4"
-strawberry-graphql = "^0.256.1"
 psycopg2-binary = "^2.9.10"
-pytest = "^7.4.0"
-pytest-django = "^4.5.2"
-
+strawberry-graphql = "^0.258.0"
+strawberry-graphql-django = "^0.55.0"
+django-debug-toolbar = "^5.0.1"
 
 
 [tool.poetry.group.dev.dependencies]
 factory-boy = "^3.3.1"
+pytest = "7.4.0"
+pytest-django = "^4.9.0"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
-
-

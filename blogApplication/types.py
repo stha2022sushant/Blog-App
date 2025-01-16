@@ -20,9 +20,9 @@ class BlogApp:
 @strawberry_django.type(get_user_model())
 class User:
     id: auto
-    username: auto
-    password: auto
-    email: auto
+    username: None
+    password: None
+    email: None
 
 
 @strawberry_django.input(models.BlogApp)
