@@ -15,6 +15,7 @@ class BlogApp:
     id: auto
     title: auto
     blog: auto
+    author: auto
 
 
 @strawberry_django.type(get_user_model())

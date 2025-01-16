@@ -12,6 +12,8 @@ psycopg2-binary = "^2.9.10"
 strawberry-graphql = "^0.258.0"
 strawberry-graphql-django = "^0.55.0"
 django-debug-toolbar = "^5.0.1"
+faker = "^33.3.1"
+factory-boy = "^3.3.1"
 
 
 [tool.poetry.group.dev.dependencies]
