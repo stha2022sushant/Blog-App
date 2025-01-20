@@ -31,6 +31,7 @@ class BlogAppInput:
     id: auto
     title: auto
     blog: auto
+    author: auto
 
 
 @strawberry_django.input(get_user_model())
