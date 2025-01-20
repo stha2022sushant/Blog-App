@@ -13,7 +13,7 @@ class BlogApp(models.Model):
         
 
 '''
-
+# clone previous changes
 
 from django.conf import settings
 
