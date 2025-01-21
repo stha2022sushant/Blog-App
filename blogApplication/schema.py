@@ -20,7 +20,7 @@ class Query:
 @strawberry.type
 class Mutation:
     create_blog: BlogApp = mutations.create(BlogAppInput)
-    create_blogs: list[BlogApp] = mutations.create(BlogAppInput)
+    #create_blogs: list[BlogApp] = mutations.create(BlogAppInput)
 
     #update_blogs: list[BlogApp] = mutations.update(BlogAppPartialInput)
 

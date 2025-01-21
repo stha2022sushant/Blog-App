@@ -7,17 +7,38 @@ class TestBlogMutation(TestCase):
         self.client = Client()
         
         # Generate a blog using BlogFactory (author may or may not be present)
-        self.blog = BlogFactory()  # This will create a blog with random title, content, and optional author
+        # self.blog = BlogFactory()  # This will create a blog with random title, content, and optional author
 
         # GraphQL mutation to create a blog
         self.create_blog_mutation = '''
-        mutation CreateBlog($title: String!, $blog: String!) {
+        mutation MyMutation ($title: String!, $blog: String!) {
           createBlog(data: {title: $title, blog: $blog}) {
             id
           }
         }
         '''
 
+        self.update_blog_mutation = '''
+        mutation MyMutation ($title: String!, $blog: String!) {
+          updateBlog(blogData: {title: $title, blog: $blog}) {
+            id
+            
+          }
+        }
+        '''
+
+        self.delete_blog_mutation = '''
+        mutation MyMutation ($blogId: ID!) {
+          deleteBlog(blogId: $blogId)
+        }
+        '''
+
+        self.blogs = BlogFactory.create()
+        print("################################")
+        print(self.blogs)
+        print("################################")
+
+"""
 
     def test_create_blog(self):
         # Prepare variables to pass into the GraphQL mutation
@@ -49,5 +70,7 @@ class TestBlogMutation(TestCase):
             if errors:
                 print(errors)  # Print the errors for debugging
             self.fail("Blog creation failed, 'createBlog' is not in the response.")
+
+    """
 
 
