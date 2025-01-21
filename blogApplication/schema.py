@@ -26,7 +26,7 @@ class Mutation:
 
     @strawberry.mutation
     @sync_to_async
-    def update_blog(self, info, blog_data: BlogAppPartialInput) -> BlogApp:
+    def update_blog(self,blog_data: BlogAppPartialInput) -> BlogApp:
         blog_instance = BlogAppModel.objects.get(id=blog_data.id)
         
         if blog_data.title:
@@ -42,7 +42,7 @@ class Mutation:
 
     @strawberry.mutation
     @sync_to_async
-    def delete_blog(self, info, blog_id: int) -> str:
+    def delete_blog(self, blog_id: int) -> str:
         try:
             blog_instance = BlogAppModel.objects.get(id=blog_id)
             blog_instance.delete()
