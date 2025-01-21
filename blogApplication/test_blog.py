@@ -1,3 +1,8 @@
+import json
+import pytest
+from django.test import TestCase, Client
+from . factories import BlogFactory
+
 class TestBlogMutation(TestCase):
     def setUp(self):
         self.client = Client()
@@ -20,7 +25,17 @@ class TestBlogMutation(TestCase):
         }
         '''
 
+        self.delete_blog_mutation = '''
+        mutation DeleteBlog($id: ID!) {
+          deleteBlog(id: $id) {
+            success
+            message
+          }
+        }
+        '''
+
     def test_create_blog(self):
+        
         variables = {
             'title': "Test Blog Title",
             'blog': "This is the content of the test blog."
@@ -46,13 +61,14 @@ class TestBlogMutation(TestCase):
         self.assertIsNotNone(created_blog_id)
         print(f"Created Blog ID: {created_blog_id}")
 
-    def test_update_existing_blog(self):
-        created_blog = BlogFactory()  # Create a blog using BlogFactory
-        
+   # def test_update_existing_blog(self):
+        #created_blog = BlogFactory()
+        updated_blog_data = BlogFactory.build()
+        #created_blog = BlogFactory()  # Create a blog using BlogFactory
         variables = {
-            'id': created_blog.id,  # Use the created blog ID
-            'title': "Updated Blog Title",  # Updated title
-            'blog': "Updated content of the blog."  # Updated content
+            'id': created_blog_id,  # Use the created blog ID
+            'title': updated_blog_data.title,  # Updated title
+            'blog': updated_blog_data.blog  # Updated content
         }
 
         update_response = self.client.post(
@@ -77,3 +93,7 @@ class TestBlogMutation(TestCase):
         self.assertEqual(updated_blog['blog'], variables['blog'])
 
         print(f"Updated Blog: {updated_blog}")
+
+    
+
+        
