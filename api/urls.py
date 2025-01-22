@@ -4,5 +4,6 @@ from . import views
 
 urlpatterns = [
     # for django rest api
-    path('', views.getData),
+    path('', views.getBlogs),
+    path('add/', views.addBlogs)
 ]
