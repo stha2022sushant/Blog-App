@@ -1,4 +1,4 @@
-""" import json
+"""import json
 from django.test import TestCase, Client
 from .factories import BlogFactory  # Import the BlogFactory to generate blog data
 
@@ -39,8 +39,9 @@ class TestBlogMutation(TestCase):
         print(data)
         print("################################")
 
+"""
 
-
+"""
     def test_create_blog(self):
         # Prepare variables to pass into the GraphQL mutation
         variables = {

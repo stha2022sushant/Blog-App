@@ -93,6 +93,38 @@ class TestBlogMutation(TestCase):
         self.assertEqual(updated_blog['blog'], variables['blog'])
 
         print(f"Updated Blog: {updated_blog}")
+    """
+        variables = {
+            'id': created_blog_id  # Pass the created blog ID
+        }
+
+        response = self.client.post(
+            '/graphql',
+            json.dumps({'query': self.delete_blog_mutation, 'variables': variables}),
+            content_type='application/json'
+        )
+
+        response_data = json.loads(response.content)
+
+        print("#############################")
+        print(response_data)
+        print("#############################")
+
+        # Check if the response does not contain errors
+        self.assertNotIn('errors', response_data, f"Errors occurred: {response_data.get('errors')}")
+
+        # Ensure the data and deleteBlog fields are present
+        self.assertIn('data', response_data)
+        self.assertIn('deleteBlog', response_data['data'])
+
+        # Verify success and message in the deleteBlog response
+        delete_response = response_data['data']['deleteBlog']
+        self.assertTrue(delete_response['success'])
+        self.assertEqual(delete_response['message'], 'Blog deleted successfully.')
+
+        print(f"Delete Response: {delete_response}")
+
+        """
 
     
 

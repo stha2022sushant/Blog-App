@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blogApplication',  #BlogSushant
     'strawberry_django',
+    'rest_framework',
     'debug_toolbar',   
 ]
 
