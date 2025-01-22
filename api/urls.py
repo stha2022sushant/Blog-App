@@ -3,5 +3,6 @@ from . import views
 
 
 urlpatterns = [
+    # for django rest api
     path('', views.getData),
 ]

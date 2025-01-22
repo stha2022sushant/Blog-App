@@ -1,8 +1,11 @@
 from rest_framework.response import Response 
 from rest_framework.decorators import api_view
+from blogApplication.models import BlogApp
+from .serializers import BlogAppSerializer
 
 
 @api_view(['GET'])
 def getData(request):
-    person = {'name':'Client Name', 'age': 23}
-    return Response(person)
+    blogs = BlogApp.objects.all()
+    serializer = BlogAppSerializer(blogs, many=True)
+    return Response(serializer.data)

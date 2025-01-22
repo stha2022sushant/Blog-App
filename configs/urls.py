@@ -19,6 +19,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('', include('blogApplication.urls'))
+    path('graphql-api/', include('blogApplication.urls')),
     path('', include('api.urls'))
 ]
