@@ -39,9 +39,7 @@ class TestBlogMutation(TestCase):
         print(data)
         print("################################")
 
-"""
 
-"""
     def test_create_blog(self):
         # Prepare variables to pass into the GraphQL mutation
         variables = {

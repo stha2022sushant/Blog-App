@@ -1,4 +1,4 @@
-import json
+""" import json
 import pytest
 from django.test import TestCase, Client
 from . factories import BlogFactory
@@ -93,7 +93,8 @@ class TestBlogMutation(TestCase):
         self.assertEqual(updated_blog['blog'], variables['blog'])
 
         print(f"Updated Blog: {updated_blog}")
-    """
+        
+    
         variables = {
             'id': created_blog_id  # Pass the created blog ID
         }
